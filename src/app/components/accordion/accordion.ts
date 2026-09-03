@@ -3,11 +3,12 @@
 // FASE 1 - IMPORT
 import { Component, inject, signal } from '@angular/core';
 import { AccordionService } from './accordion.service';
+import { AccordionItem } from '../accordion-item/accordion-item';
 
 // FASE 2 - CONFIGURAZIONE DEL COMPONENTE
 @Component({
   selector: 'app-accordion',
-  imports: [],
+  imports: [AccordionItem],
   templateUrl: './accordion.html',
   styleUrl: './accordion.css',
 })

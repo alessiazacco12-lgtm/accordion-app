@@ -1,0 +1,15 @@
+<!-- SINGOLO ELEMENTO DELL'ACCORDION -->
+<div class="accordion-item">
+  <!-- DOMANDA -->
+  <button type="button" class="accordion-question" (click)="toggle.emit()">
+    <span>{{ item().question }}</span>
+    <span>{{ isOpen() ? 'ˆ' : '⌄' }}</span>
+  </button>
+
+  <!-- RISPOSTA -->
+  @if (isOpen()) {
+    <div class="accordion-answer">
+      <p>{{ item().answer }}</p>
+    </div>
+  }
+</div>
