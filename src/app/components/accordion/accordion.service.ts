@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AccordionItem } from './accordion-data';
+import { AccordionItem } from './accordion.model';
 
 @Injectable({
   providedIn: 'root',
