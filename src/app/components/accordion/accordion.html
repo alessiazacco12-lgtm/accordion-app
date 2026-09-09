@@ -1,23 +1,14 @@
-<!-- CONTENITORE PRINCIPALE DELL'ACCORDION -->
 <div class="accordion-container">
   <h1>Frequently Asked Questions</h1>
   <p>Here are some of the frequently asked questions</p>
 
-  <!-- ELENCO DELLE DOMANDE -->
-  @for (item of items; track item.question; let index = $index) {
-    <div class="accordion-item">
-      <!-- DOMANDA -->
-      <button type="button" class="accordion-question" (click)="toggleItem(index)">
-        <span>{{ item.question }}</span>
-        <span>⌄</span>
-      </button>
-
-      <!-- RISPOSTA -->
-      @if (openIndex() === index) {
-        <div class="accordion-answer">
-          <p>{{ item.answer }}</p>
-        </div>
-      }
-    </div>
+  <!-- Scorro tutte le domande dell'accordion -->
+  @for (item of items; track item; let index = $index) {
+    <!-- Passo al componente figlio i dati della singola domanda e indico se questa voce è aperta oppure no. Quando il figlio emette toggle, richiamo toggleItem(index) nel padre.-->
+    <app-accordion-item
+      [item]="item"
+      [isOpen]="openIndex() === index"
+      (toggle)="toggleItem(index)"
+    ></app-accordion-item>
   }
 </div>
